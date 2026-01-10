@@ -23,6 +23,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
+    // create user
     public AuthResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstname(request.getFirstname())
@@ -31,18 +32,28 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
-        repository.save(user);
+        repository.save(user); // create user
+
+        // generate new token
         var jwtToken = jwtService.generateToken(user);
+
+        // return token
         return AuthResponse.builder().token(jwtToken).build();
     }
 
+
+
     public AuthResponse authenticate(AuthRequest request) {
+
+        // call authenticationManager.authenticate() to check credentials
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
                         request.getPassword()
                 )
         );
+
+        // if correct, fetch user and return new token
         var user = repository.findByEmail(request.getEmail()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         return AuthResponse.builder().token(jwtToken).build();

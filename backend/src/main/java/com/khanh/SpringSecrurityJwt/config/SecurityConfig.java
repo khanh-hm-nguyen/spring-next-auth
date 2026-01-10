@@ -23,12 +23,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/api/v1/auth/**").permitAll() // allow everyone can access these urls
+                        .requestMatchers("/api/v1/admin/**").hasAuthority("ADMIN") // only users with Role.ADMIN can access this
+                        .anyRequest().authenticated() // block any other request requires a valid jwt token
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class); // add jwtauthfilter to the filter chain
 
         return http.build();
     }
