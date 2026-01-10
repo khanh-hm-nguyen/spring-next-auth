@@ -17,11 +17,9 @@ const LoginPage = () => {
     setError("");
 
     try {
-      // The service now handles saving the token internally
       await authService.login({ email, password });
       router.push("/dashboard");
     } catch (err) {
-      // Simple error handling
       setError("Invalid credentials" + err);
     } finally {
       setLoading(false);
@@ -29,9 +27,7 @@ const LoginPage = () => {
   };
 
   return (
-    // Main Background: Pure Black
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      {/* Card Container: Dark Gray with subtle border */}
       <div className="w-full max-w-md p-8 bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl">
         <div className="mb-8 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white">
