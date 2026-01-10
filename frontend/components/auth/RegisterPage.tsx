@@ -65,7 +65,7 @@ const RegisterPage = () => {
               </label>
               <input
                 name="firstname"
-                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                 placeholder="John"
                 onChange={handleChange}
                 required
@@ -77,7 +77,7 @@ const RegisterPage = () => {
               </label>
               <input
                 name="lastname"
-                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                 placeholder="Doe"
                 onChange={handleChange}
                 required
@@ -92,7 +92,7 @@ const RegisterPage = () => {
             </label>
             <input
               name="email"
-              className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
               placeholder="name@example.com"
               type="email"
               onChange={handleChange}
@@ -107,7 +107,7 @@ const RegisterPage = () => {
             </label>
             <input
               name="password"
-              className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
               placeholder="••••••••"
               type="password"
               onChange={handleChange}
@@ -123,7 +123,7 @@ const RegisterPage = () => {
               ${
                 loading
                   ? "bg-zinc-700 cursor-not-allowed"
-                  : "bg-blue-600 hover:bg-blue-500 active:scale-95 shadow-lg shadow-blue-900/20"
+                  : "bg-green-600 hover:bg-green-500 active:scale-95 shadow-lg shadow-blue-900/20"
               }`}
           >
             {loading ? "Creating Account..." : "Sign Up"}
@@ -134,7 +134,7 @@ const RegisterPage = () => {
           Already have an account?{" "}
           <a
             href="/login"
-            className="font-medium text-blue-500 hover:text-blue-400 hover:underline"
+            className="font-medium text-green-500 hover:text-green-400 hover:underline"
           >
             Log in
           </a>

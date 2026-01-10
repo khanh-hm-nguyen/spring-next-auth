@@ -75,9 +75,7 @@ const DashboardPage = () => {
           </button>
         </div>
       </div>
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-8">
-        <div className="w-12 h-24 bg-[#3E2723] rounded-t-full mx-auto"></div>
-      </div>
+
     </div>
   );
 };
